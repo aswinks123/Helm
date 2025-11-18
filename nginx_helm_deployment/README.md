@@ -26,3 +26,5 @@ kubectl get pods && kubectl get svc  #It will list the deployed pod and the asso
 ## Result
 
 ![alt text](image.png)
+
+![alt text](image-1.png)
