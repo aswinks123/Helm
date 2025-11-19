@@ -1,4 +1,6 @@
-# Deploy an Nginx Helm deployment on Kubernetes
+# Deploy an Nginx Helm deployment on Kubernetes (Uding official nginx helm chart)
+
+### Check the my-nginx directory to find how to create a custom helm chart
 
 ## 1. Add the Bitnami helm repository to download helm chart.
 
