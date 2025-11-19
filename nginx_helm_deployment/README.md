@@ -1,4 +1,4 @@
-# Deploy an Nginx Helm deployment on Kubernetes (Uding official nginx helm chart)
+# Deploy an Nginx Helm deployment on Kubernetes (Using official nginx helm chart)
 
 ### Check the my-nginx directory to find how to create a custom helm chart
 
