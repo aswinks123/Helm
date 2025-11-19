@@ -1,6 +1,6 @@
-## This is a custom created nginx helm chart.
+# This is a custom created nginx helm chart.
 
-How is it created?
+### How is it created?
 
 1. helm create my-nginx  #This create a sample helm template and necessary files
 
