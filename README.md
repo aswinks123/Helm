@@ -51,7 +51,7 @@ helm status <chartname>
 5. List all the packages or deployments (helm)
 
 ```
-helm list
+helm list or helm ls
 
 helm list -n default  #Specify a namespace
 ```
@@ -67,3 +67,4 @@ helm uninstall <helm deployment name>
 ```
 helm repo update
 ```
+
