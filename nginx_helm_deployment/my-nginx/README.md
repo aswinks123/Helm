@@ -4,6 +4,8 @@
 
 1. helm create my-nginx  #This create a sample helm template and necessary files
 
+![alt text](image-2.png)
+
 2. Edit the values.yaml file according to your requirements. I modified the following:
 
 ```
