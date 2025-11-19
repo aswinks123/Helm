@@ -42,5 +42,28 @@ helm install <release-name> <chart-name>
 helm install my-nginx bitnami/nginx
 ```
 
+4. View the status of the deployed chart. It shows the instructions about the chart again.
 
+```
+helm status <chartname>
+```
 
+5. List all the packages or deployments (helm)
+
+```
+helm list
+
+helm list -n default  #Specify a namespace
+```
+
+6. Uninstall a helm deployment
+
+```
+helm uninstall <helm deployment name>
+```
+
+7. Check for any updates in Helm repository that we added
+
+```
+helm repo update
+```
