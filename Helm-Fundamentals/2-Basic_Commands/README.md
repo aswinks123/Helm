@@ -28,10 +28,14 @@ WARNING: There are "resources" sections in the chart not set. Using "resourcesPr
 ```
 ### What happend?
 
-Helm fetchesteh chart
-Renders the template to YAML 
+Helm fetches the chart
+
+Renders the template to YAML
+
 Sends the YAML file to Kubernetes
+
 Kubernetes created the required resources
+
 A helm release name called my-nginx is created
 
 
