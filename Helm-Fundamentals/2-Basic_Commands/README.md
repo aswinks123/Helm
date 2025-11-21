@@ -26,7 +26,7 @@ WARNING: There are "resources" sections in the chart not set. Using "resourcesPr
   - resources
 +info https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
 ```
-### What happend?
+### What happened?
 
 Helm fetches the chart
 
@@ -83,7 +83,7 @@ WARNING: There are "resources" sections in the chart not set. Using "resourcesPr
 ```
 ### 4. helm get manifest
 
-This command displays the actual fully rendered manifiest yaml file that was sent to the kubernetes. Rendered means all the values are filled and all placeholders are replaced with actual values. Values can be passed to the chart template using a value.yaml file.
+This command displays the actual fully rendered manifest yaml file that was sent to the kubernetes. Rendered means all the values are filled and all placeholders are replaced with actual values. Values can be passed to the chart template using a value.yaml file.
 
 ```
 aswin@HP:~$ helm get manifest my-nginx
@@ -129,11 +129,11 @@ In this example we changed the nginx image tag from latest to 1.25.2
 
 ### 6. helm upgrade --install
 
-This is useful in CI/CD scenarios: WHen the command runs the first time, it installs the release. But if it runs again it will only upgrade (Only nre changes). This makes deployment faster.
+This is useful in CI/CD scenarios: When the command runs the first time, it installs the release. But if it runs again it will only upgrade (Only nre changes). This makes deployment faster.
 
 During First run:
 ```
-swin@HP:~$ helm upgrade --install my-nginx bitnami/nginx
+aswin@HP:~$ helm upgrade --install my-nginx bitnami/nginx
 Release "my-nginx" does not exist. Installing it now.
 NAME: my-nginx
 LAST DEPLOYED: Thu Nov 20 23:09:31 2025
