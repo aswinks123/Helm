@@ -1,8 +1,8 @@
-Created by : Aswin KS
+***Created by : Aswin KS***
 
 # Basic Helm Commands
 
-1. helm install
+### 1. helm install
 
 helm install command deploys an application to kubernetes using a chart
 
@@ -35,7 +35,7 @@ Kubernetes created the required resources
 A helm release name called my-nginx is created
 
 
-2. helm list/ helm ls
+### 2. helm list/ helm ls
 
 Lists all the installed helm releases
 
@@ -53,7 +53,7 @@ NAME       READY   UP-TO-DATE   AVAILABLE   AGE
 my-nginx   1/1     1            1           3m44s
 ```
 
-3. helm status
+### 3. helm status
 
 This will list the same information that we viewed after the chart is installed. Useful if you want to revisit the details.
 
@@ -77,7 +77,7 @@ WARNING: There are "resources" sections in the chart not set. Using "resourcesPr
   - resources
 +info https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
 ```
-4. helm get manifest
+### 4. helm get manifest
 
 This command displays the actual fully rendered manifiest yaml file that was sent to the kubernetes. Rendered means all the values are filled and all placeholders are replaced with actual values. Values can be passed to the chart template using a value.yaml file.
 
@@ -104,7 +104,7 @@ spec:
 and so on...
 
 ```
-5. helm upgrade
+### 5. helm upgrade
 
 It is used to modify an existing helm release
 
@@ -123,7 +123,7 @@ aswin@HP:~$ helm get manifest my-nginx | grep image
 
 In this example we changed the nginx image tag from latest to 1.25.2
 
-6. helm upgrade --install
+### 6. helm upgrade --install
 
 This is useful in CI/CD scenarios: WHen the command runs the first time, it installs the release. But if it runs again it will only upgrade (Only nre changes). This makes deployment faster.
 
@@ -142,7 +142,7 @@ Release "my-nginx" has been upgraded. Happy Helming!
 NAME: my-nginx
 LAST DEPLOYED: Thu Nov 20 23:08:31 2025
 ```
-7. helm history  and rollback
+### 7. helm history  and rollback
 
 When upgrading, if an error occurs, you can rollback to previous release.
 
@@ -166,7 +166,7 @@ aswin@HP:~$ helm rollback my-nginx 1
 Rollback was a success! Happy Helming!
 ```
 
-8. helm uninstall
+### 8. helm uninstall
 
 Command used to remove all the resources created by this release (A release is an instance of a chart deployed to a Kubernetes, A chart is just a manifest files. When a chart is installed, it is called a release.)
 
