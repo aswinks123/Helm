@@ -12,4 +12,4 @@ It simplifies deploying, configuring, and managing apps on Kubernetes
 | Values     | Configuration options for customizing charts         |
 
 
-### Refer the Modules to explore more!
+### Refer the modules to explore more!
