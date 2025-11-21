@@ -62,7 +62,7 @@ my-nginx   1/1     1            1           3m44s
 This will list the same information that we viewed after the chart is installed. Useful if you want to revisit the details.
 
 ```
-swin@HP:~$ helm status my-nginx
+aswin@HP:~$ helm status my-nginx
 NAME: my-nginx
 LAST DEPLOYED: Thu Nov 20 22:54:04 2025
 NAMESPACE: default
