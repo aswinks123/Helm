@@ -108,7 +108,7 @@ spec:
 
 ### Explanation of the syntax
 
-1. {{ .Values.service.nodePort | default 30080 }} : It will first check and substitute the value of nodePort from  values.yaml -> services session. If nodePort value is empty, it assign the default value 30080.
+1. {{ .Values.service.nodePort | default 30080 }} : It will check the value of nodePort from  values.yaml -> services. If nodePort value is empty, it assign the default value 30080.
 
 
 ## 5. Create the values.yaml file
