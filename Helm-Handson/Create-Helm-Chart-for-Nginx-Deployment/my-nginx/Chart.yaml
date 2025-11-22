@@ -1,0 +1,22 @@
+apiVersion: v2
+name: my-nginx
+description: Basic Nginx helm chart created to learn helm concepts
+
+#There are 2 types of charts
+
+# 1. application: A deployable chart that contains templates and creates Kubernetes resources.
+# 2. library: A reusable helper chart that contains functions, not deployable by itself.
+
+type: application
+
+# This is the chart version. This version number should be incremented each time you make changes
+#eg: 1.0 is wrong, and 0.1.0 is valid because, it require to follow strict SemVer style.
+
+version: 0.1.0
+
+# This is the version number of the application being deployed.
+# Versions are not expected to follow Semantic Versioning.
+# It is recommended to use it with quotes.
+appVersion: "1.0"
+
+# Note: version must not be a string because it must follow SemVer style, while appVersion must be string
