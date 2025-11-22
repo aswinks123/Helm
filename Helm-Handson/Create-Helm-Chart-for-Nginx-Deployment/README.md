@@ -127,7 +127,66 @@ service:
   nodePort: 30080
 ```
 
+## 6. Debug the chart
 
+In this stage, our chart is ready to be deployed. But before that, we need to ensure the chart is error free, to do these we use the following mechanism.
+
+1. Linting: Lint check the syntax and formatting of the chart
+
+```
+aswin@HP Create-Helm-Chart-for-Nginx-Deployment$ helm lint my-nginx
+==> Linting my-nginx
+[INFO] Chart.yaml: icon is recommended
+
+1 chart(s) linted, 0 chart(s) failed
+```
+The results shows no errors, and we are good to go.
+
+
+## 7. Install the chart
+
+```
+aswin@HP Create-Helm-Chart-for-Nginx-Deployment$ helm install aswin-nginx my-nginx
+NAME: aswin-nginx
+LAST DEPLOYED: Sat Nov 22 14:59:48 2025
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+```
+Chart is deployed successfully. Lets verify
+
+```
+aswin@HP Create-Helm-Chart-for-Nginx-Deployment$ kubectl get deploy
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+aswin-nginx-nginx   1/1     1            1           78s
+aswin@HP Create-Helm-Chart-for-Nginx-Deployment$ kubectl get svc | grep aswin-nginx
+aswin-nginx-svc     NodePort    10.109.38.221   <none>        80:30080/TCP   83s
+```
+As you can see, the deployment and service are deployed successfully. Note the port " 80:30080/TCP", 30080 was fetched from the values.yaml file.
+
+## 8. Access the application
+
+As we are using minikube to deploy the kubernetes cluster, a port forwarding is require:
+
+The following command will perform the port forwarding for the service
+
+```
+aswin@HP Create-Helm-Chart-for-Nginx-Deployment$ minikube service aswin-nginx-svc
+|-----------|-----------------|-------------|---------------------------|
+| NAMESPACE |      NAME       | TARGET PORT |            URL            |
+|-----------|-----------------|-------------|---------------------------|
+| default   | aswin-nginx-svc |          80 | http://192.168.49.2:30080 |
+|-----------|-----------------|-------------|---------------------------|
+🎉  Opening service default/aswin-nginx-svc in default browser...
+```
+
+Now verify the Nginx by accessing the <IP>:30080 or localhost:30080
+
+![alt text](image.png)
+
+
+### We have successfully created a helm chart from scratch, and deployed an nginx deployment on a Kubernetes cluster.
 
 
 
