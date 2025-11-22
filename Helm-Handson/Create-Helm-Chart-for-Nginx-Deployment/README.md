@@ -154,7 +154,7 @@ STATUS: deployed
 REVISION: 1
 TEST SUITE: None
 ```
-Chart is deployed successfully. Lets verify
+Chart is deployed successfully. Let's verify
 
 ```
 aswin@HP Create-Helm-Chart-for-Nginx-Deployment$ kubectl get deploy
@@ -181,7 +181,7 @@ aswin@HP Create-Helm-Chart-for-Nginx-Deployment$ minikube service aswin-nginx-sv
 🎉  Opening service default/aswin-nginx-svc in default browser...
 ```
 
-Now verify the Nginx by accessing the <IP>:30080 or localhost:30080
+Now verify the Nginx by accessing the IP address:30080 or localhost:30080
 
 ![alt text](image.png)
 
