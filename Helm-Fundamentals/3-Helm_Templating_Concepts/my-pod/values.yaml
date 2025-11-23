@@ -1,3 +1,7 @@
-image: nginx
-tag: latest
 name: test-pod
+containerPort: 80
+
+image:
+  repository: nginx
+  tag: 1.29.3
+
