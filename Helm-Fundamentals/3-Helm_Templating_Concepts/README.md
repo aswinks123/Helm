@@ -25,7 +25,12 @@ spec:
 Value.yaml file
 
 ```
-Add the value file here at last
+name: test-pod
+containerPort: 80
+
+image:
+  repository: nginx
+  tag: 1.29.3
 ```
 
 
@@ -33,7 +38,7 @@ Add the value file here at last
 
 This is the syntax used by helm to run Go code inside a yaml file. Anything inside the {{..}} will be evaluated. Basically all dynamic content goes inside this.
 
-eg: Change the name value from static nginx pod to -   name: {{ .Value.name }}
+eg: Change the name value from static nginx pod to " -   name: {{ .Value.name }} "
 #This will fetch the name key from values.yaml and substitute it in the {{..}}
 
 ```
