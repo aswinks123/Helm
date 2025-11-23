@@ -22,7 +22,7 @@ spec:
 
 ```
 
-Value.yaml file
+Values.yaml file
 
 ```
 name: test-pod
