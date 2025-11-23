@@ -58,7 +58,7 @@ spec:
 
 ### 2. Whitespace Trimming   {{- ... - }}
 
--  : This trims all the white space from the front or rear according to where it is used.
+{{-   some text   -}} : This trims all the white space from the front or rear according to where it is used.
 
 eg:  {{-          I am far from right side}}   # It trims all the white space in front of the text.
 
