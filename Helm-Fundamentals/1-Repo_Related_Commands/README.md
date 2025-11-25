@@ -68,3 +68,20 @@ aswin@HP:~$ helm pull bitnami/nginx
 aswin@HP:~$ ls -ltr | tail -1
 -rw-r--r--  1 aswin aswin     60819 Nov 20 22:48 nginx-22.3.2.tgz
 ```
+
+### 7. helm env
+
+Shows environment variables Helm uses.
+
+```
+aswin@HP Helm-Fundamentals$ helm env
+HELM_BIN="helm"
+HELM_BURST_LIMIT="100"
+HELM_CACHE_HOME="/home/aswin/.cache/helm"
+HELM_CONFIG_HOME="/home/aswin/.config/helm"
+HELM_DATA_HOME="/home/aswin/.local/share/helm"
+HELM_DEBUG="false"
+HELM_KUBEAPISERVER=""
+HELM_KUBEASGROUPS=""
+HELM_KUBEASUSER=""
+```
