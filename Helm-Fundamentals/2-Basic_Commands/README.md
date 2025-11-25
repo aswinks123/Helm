@@ -179,3 +179,25 @@ aswin@HP:~$ helm uninstall my-nginx
 release "my-nginx" uninstalled
 
 ```
+
+9. Render the template locally with out installing
+
+This is used to see what yaml the Helm will generate 
+
+```
+aswin@HP:~/helm-learning/Helm/Helm-Fundamentals/3-Helm_Templating_Concepts$ helm template my-pod/
+---
+# Source: my-pod/templates/pod.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test-pod
+spec:
+  containers:
+    - name: nginx
+      image: nginx:1.29.3
+      ports:
+        - containerPort: 80
+
+# Values are fetched from values.yaml file to render it.
+```
