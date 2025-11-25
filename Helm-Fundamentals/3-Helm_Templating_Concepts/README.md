@@ -146,3 +146,46 @@ metadata:
     chart: {{ .Chart.Name }}-{{ .Chart.Version }} #Renders the chart name and version
 
 ```
+
+### 6. Conditional Statements - if/else/end
+
+These are used to perform conditional operations
+
+```
+{{- if .Values.service.enabled}}
+
+< Perform some action here. Action can be to create a resource like a kubernetes service..etc. >
+
+```
+
+### 7. Loops - Range
+
+Range is used to loop over multiple items.
+
+```
+{{- range .Values.ports }}
+
+- containerPort: {{ . }}
+
+{{- end }}
+```
+
+Explanation: 
+In the values.yaml file there will be list of ports :
+
+ports:
+  - 80
+  - 443
+  - 8080
+
+range loops over each element in the list
+
+Inside the loop  dot " . " refers to the current element
+
+So for our ports list:
+
+First iteration → . = 80
+
+Second iteration → . = 443
+
+Third iteration → . = 8080
