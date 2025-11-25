@@ -1,6 +1,6 @@
 # Release Inspection & Debugging Commands
 
-These commands help to analyze what is installed
+These commands help to analyze what is installed by helm
 
 ### 1. helm list / helm ls
 
