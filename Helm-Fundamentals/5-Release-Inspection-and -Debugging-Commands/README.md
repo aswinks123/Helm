@@ -4,7 +4,7 @@ These commands help to analyze what is installed
 
 ### 1. helm list / helm ls
 
-Used to list all release
+Used to list all release.
 
 ```
 aswin@HP 3-Helm_Templating_Concepts$ helm ls
