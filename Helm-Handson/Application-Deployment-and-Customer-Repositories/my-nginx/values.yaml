@@ -1,0 +1,13 @@
+
+#Custom values added
+
+replicaCount: 2
+
+htmlContent: |
+  <h1>Hello Aswin's NGINX</h1>
+  <p>This HTML came from values.yaml!. Version 3</p>
+
+service:
+  port: 80
+  type: NodePort
+  nodePort: 30080

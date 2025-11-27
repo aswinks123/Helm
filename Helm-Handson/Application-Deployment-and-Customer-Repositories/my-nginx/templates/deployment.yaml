@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-nginx
+spec:
+#Value taken from values.yaml file
+  replicas: {{ .Values.replicaCount }} 
+  selector:
+    matchLabels:
+      app: my-nginx
+  template:
+    metadata:
+      labels:
+        app: my-nginx
+
+        #This is to force the pod to be recreated because config map changed only when pod recreated.
+      annotations:
+          checksum/config: {{ include (print $.Template.BasePath "/configmap-index.yaml") . | sha256sum }}
+    spec:
+      containers:
+      - name: my-nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+
+# The volume that we created below "html" is then mounted to the pods location specified in mountPath (This is the default location of nginx pods index.html file)
+        volumeMounts:
+        - name: html
+          mountPath: /usr/share/nginx/html/index.html
+          subPath: index.html
+
+
+# Create a volume that contain the value of config map item "my-nginx-html". That value is actually a file called index.html(check the configmap-index.yaml file)     
+      volumes:
+      - name: html
+        configMap:
+          name: my-nginx-html
