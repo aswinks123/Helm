@@ -1,4 +1,4 @@
-# 1. This is our Python API application that we are going to package into a docker image.
+# This is our Python API application that we are going to package into a docker image.
 # It creates a simple API that prints hello world and an endpoint to return whether the app is healthy or not.
 # Created by: Aswin KS
 
