@@ -89,13 +89,15 @@ CONTAINER ID   IMAGE                                 COMMAND                  CR
 ![alt text](images/app-availability.png)
 
 
-## Part 2 Create a Helm Chart and Deploy the Containers
+## PART 2: Create a Helm Chart and Deploy the Containers
 
 ### 1. Run the following command to create a sample chart
 
+```
 helm create hello-api-chart
+```
 
-a. Edit the deployment.yaml, values.yaml, service.yaml (Refer the files located in the same directory)
+* Edit the deployment.yaml, values.yaml, service.yaml (refer the files located in the same directory)
 
 ### 2. Install the helm chart 
 
@@ -146,6 +148,52 @@ aswin@Aswin-HP:~$ minikube service helloapi-hello-api-chart
 ![alt text](images/helm-deploy.png)
 
 
+## PART 3: Package the chart and Create a local Helm HTTP repository server to host it
 
+1. Package the chart
 
+Run in the parent directory (where hello-api-chart/ is)
+
+```
+aswin@Aswin-HP:Containerized_API_Creation_and_Deployment$ helm package hello-api-chart
+
+# You can see the tar.gz package created.
+
+aswin@Aswin-HP:Containerized_API_Creation_and_Deployment$ ll | grep api
+drwxr-xr-x 4 aswin aswin 4096 Nov 30 16:26 hello-api-chart/
+-rw-rw-r-- 1 aswin aswin 2061 Nov 30 16:55 hello-api-chart-0.1.0.tgz
+
+2. Create a Directory and move the package into it
+
+Note: This directory will act as a local repository when we host it as http server.
+
+```
+aswin@Aswin-HP:Containerized_API_Creation_and_Deployment$ mkdir myhelmrepo
+aswin@Aswin-HP:Containerized_API_Creation_and_Deployment$ mv hello-api-chart myhelmrepo/
+```
+3. Create an index.html file for the Http server 
+
+```
+aswin@Aswin-HP:Containerized_API_Creation_and_Deployment$ helm repo index myhelmrepo --url http://127.0.0.1:8000
+
+#Index.html file container a similar entry
+
+aswin@Aswin-HP:Containerized_API_Creation_and_Deployment$ cat myhelmrepo/index.yaml 
+apiVersion: v1
+entries: {}
+generated: "2025-11-30T16:58:17.957100233-05:00"
+
+```
+4. Host the repositiry using Python HTTP server
+
+```
+aswin@Aswin-HP:Containerized_API_Creation_and_Deployment$ cd myhelmrepo/
+aswin@Aswin-HP:myhelmrepo$ python3 -m http.server 8000
+Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
+
+```
+
+Image of the repository hosted
+
+![alt text](image.png)
 
