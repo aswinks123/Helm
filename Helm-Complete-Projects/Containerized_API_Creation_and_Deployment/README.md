@@ -2,8 +2,9 @@
 
 ```
 1. Create a Python API
-2. Containerize that application
-3. Use HELM to deploy the Application on to a Kubernetes Cluster
+2. Containerize that application and pudh to docker Hub
+3. Create Helm Chart required for the Application on to a Kubernetes Cluster
+4. Create a Local Helm HTTP repository that hold the chart
 
 ```
 
