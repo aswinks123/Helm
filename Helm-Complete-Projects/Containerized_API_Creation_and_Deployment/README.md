@@ -1,4 +1,13 @@
-# PART 1: Creation of Application, Containerize it and push to Docker Hub
+# About the Project
+
+```
+1. Create a Python API
+2. Containerize that application
+3. Use HELM to deploy the Application on to a Kubernetes Cluster
+
+```
+
+## PART 1: Creation of Application, Containerize it and push to Docker Hub
 
 ### 1. Create a Python API Web application 
 
