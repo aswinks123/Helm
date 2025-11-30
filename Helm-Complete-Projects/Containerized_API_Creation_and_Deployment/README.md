@@ -89,4 +89,63 @@ CONTAINER ID   IMAGE                                 COMMAND                  CR
 ![alt text](images/app-availability.png)
 
 
-### Part 1 Completed Successfully!
+## Part 2 Create a Helm Chart and Deploy the Containers
+
+### 1. Run the following command to create a sample chart
+
+helm create hello-api-chart
+
+a. Edit the deployment.yaml, values.yaml, service.yaml (Refer the files located in the same directory)
+
+### 2. Install the helm chart 
+
+Once the chart is edited and modified according to your requirement, execute the chart install command.
+
+```
+aswin@Aswin-HP:Containerized_API_Creation_and_Deployment$ helm install helloapi ./hello-api-chart/
+NAME: helloapi
+LAST DEPLOYED: Sun Nov 30 16:42:19 2025
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+DESCRIPTION: Install complete
+```
+
+### 3. Verify the chart installation status
+
+```
+aswin@Aswin-HP:~$ helm ls
+NAME    	NAMESPACE	REVISION	UPDATED                                	STATUS  	CHART                	APP VERSION
+helloapi	default  	1       	2025-11-30 16:42:19.776121676 -0500 EST	deployed	hello-api-chart-0.1.0	1.16.0     
+
+```
+
+### 4. Check the service and deployment created by Helm
+
+```
+aswin@Aswin-HP:~$ kubectl get svc && kubectl get deploy
+NAME                       TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+helloapi-hello-api-chart   NodePort    10.110.165.49   <none>        8000:30080/TCP   104s
+kubernetes                 ClusterIP   10.96.0.1       <none>        443/TCP          4d16h
+NAME                       READY   UP-TO-DATE   AVAILABLE   AGE
+helloapi-hello-api-chart   1/1     1            1           104s
+```
+
+### 5. Access the Service and verify the Application Availability
+
+```
+aswin@Aswin-HP:~$ minikube service helloapi-hello-api-chart
+┌───────────┬──────────────────────────┬─────────────┬───────────────────────────┐
+│ NAMESPACE │           NAME           │ TARGET PORT │            URL            │
+├───────────┼──────────────────────────┼─────────────┼───────────────────────────┤
+│ default   │ helloapi-hello-api-chart │ 8000        │ http://192.168.49.2:30080 │
+└───────────┴──────────────────────────┴─────────────┴───────────────────────────┘
+🎉  Opening service default/helloapi-hello-api-chart in default browser...
+```
+
+![alt text](images/helm-deploy.png)
+
+
+
+
+
