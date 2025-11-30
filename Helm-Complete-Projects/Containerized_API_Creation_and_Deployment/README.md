@@ -74,7 +74,7 @@ CONTAINER ID   IMAGE                                 COMMAND                  CR
 
 ```
 
-### 5. Access the application from the browser
+### 6. Access the application from the browser
 
 
 ![alt text](images/app-availability.png)
