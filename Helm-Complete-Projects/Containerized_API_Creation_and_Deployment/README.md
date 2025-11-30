@@ -80,5 +80,4 @@ CONTAINER ID   IMAGE                                 COMMAND                  CR
 ![alt text](images/app-availability.png)
 
 
-
-# PART 2: Creating HELM packages
+### Part 1 Completed Successfully!
