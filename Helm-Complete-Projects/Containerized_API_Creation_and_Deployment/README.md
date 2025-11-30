@@ -1,11 +1,10 @@
-PART 1: Creation Application, Containerize it and push to Docker Hub
+# PART 1: Creation of Application, Containerize it and push to Docker Hub
 
-1. Create a Python API Web application - Done
+### 1. Create a Python API Web application 
 
 Note: Refer the app.py file
 
-
-2. Create a Docker file and Build the image - Done
+### 2. Create a Docker file and build the image 
 
 Note: Refer the Dockerfile 
 
@@ -36,8 +35,9 @@ aswin@Aswin-HP:Containerized_API_Creation_and_Deployment$ docker build -t 136589
  => => unpacking to docker.io/1365890/hello-api:1.0                                                                                                                                     0.0s
 
 ```
-3. Test the image Locally - Done
-3. Push the image to Docker Hub
+
+
+### 3. Push the image to Docker Hub
 
 ```
 aswin@Aswin-HP:Containerized_API_Creation_and_Deployment$ docker push 1365890/hello-api:1.0 
@@ -54,3 +54,31 @@ d6f24ba36563: Pushed
 1.0: digest: sha256:0eaeda308f414d319cc500b769e5c6986733e0ed31882ce1ea73ecbccc74f018 size: 856
 ```
 
+### 4. Verify the image availability in Docker Hub
+
+![alt text](images/dockerhub.png)
+
+
+### 5. Create a container and test the image locally
+
+```
+swin@Aswin-HP:Containerized_API_Creation_and_Deployment$ docker run -d -p 8000:8000 --name my-api 1365890/hello-api:1.0
+
+
+383f5c78979f7136b0fc12fb835444134905177b97bcf3df82066d34bb581a9a
+
+
+aswin@Aswin-HP:Containerized_API_Creation_and_Deployment$ docker ps
+CONTAINER ID   IMAGE                                 COMMAND                  CREATED         STATUS          PORTS                                                                                                                                  NAMES
+383f5c78979f   1365890/hello-api:1.0                 "uvicorn app:app --h…"   2 seconds ago   Up 2 seconds    0.0.0.0:8000->8000/tcp, [::]:8000->8000/tcp                                                                                            my-api
+
+```
+
+### 5. Access the application from the browser
+
+
+![alt text](images/app-availability.png)
+
+
+
+# PART 2: Creating HELM packages
