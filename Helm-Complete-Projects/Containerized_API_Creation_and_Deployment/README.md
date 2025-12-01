@@ -286,4 +286,14 @@ You can see the our repo (myrepo) is now added to the Helm, and it contains the 
 Created by Aswin KS. Thank you and happy learning!
 
 
-# Next Phase: Add Kubernetes Best Practices (Coming Soon)
+## Phase 2 (Work in Progress)
+
+This branch will introduce production-grade improvements to the Helm chart, including:
+
+```
+- Resource limits
+- Probes
+- ConfigMap support
+- Replicas
+- Service improvements
+```
