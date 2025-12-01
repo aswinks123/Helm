@@ -130,7 +130,7 @@ CONTAINER ID   IMAGE                                 COMMAND                  CR
 ![alt text](images/app-availability.png)
 
 
-## 2️⃣PART 2: Create a Helm Chart and deploy the containers
+## 2️⃣ PART 2: Create a Helm Chart and deploy the containers
 
 ### 1. Run the following command to create a sample chart
 
@@ -189,7 +189,7 @@ aswin@Aswin-HP:~$ minikube service helloapi-hello-api-chart
 ![alt text](images/helm-deploy.png)
 
 
-## PART 3: Package the chart and create a local Helm HTTP repository server to host it
+## 3️⃣ PART 3: Package the chart and create a local Helm HTTP repository server to host it
 
 ### 1. Package the chart
 
