@@ -5,6 +5,7 @@
 2. Containerize that application and pudh to docker Hub
 3. Create Helm Chart required for the Application on to a Kubernetes Cluster
 4. Create a Local Helm HTTP repository that hold the chart
+5. Add the HTTP Helm repository and verify the chart.
 
 ```
 
@@ -151,7 +152,7 @@ aswin@Aswin-HP:~$ minikube service helloapi-hello-api-chart
 
 ## PART 3: Package the chart and Create a local Helm HTTP repository server to host it
 
-1. Package the chart
+### 1. Package the chart
 
 Run in the parent directory (where hello-api-chart/ is)
 
@@ -161,31 +162,48 @@ aswin@Aswin-HP:Containerized_API_Creation_and_Deployment$ helm package hello-api
 # You can see the tar.gz package created.
 
 aswin@Aswin-HP:Containerized_API_Creation_and_Deployment$ ll | grep api
-drwxr-xr-x 4 aswin aswin 4096 Nov 30 16:26 hello-api-chart/
+
 -rw-rw-r-- 1 aswin aswin 2061 Nov 30 16:55 hello-api-chart-0.1.0.tgz
 
-2. Create a Directory and move the package into it
+```
+
+### 2. Create a Directory and move the package into it
 
 Note: This directory will act as a local repository when we host it as http server.
 
 ```
 aswin@Aswin-HP:Containerized_API_Creation_and_Deployment$ mkdir myhelmrepo
-aswin@Aswin-HP:Containerized_API_Creation_and_Deployment$ mv hello-api-chart myhelmrepo/
+
+aswin@Aswin-HP:Containerized_API_Creation_and_Deployment$ mv hello-api-chart-0.1.0.tgz myhelmrepo/
 ```
-3. Create an index.html file for the Http server 
+
+### 3. Create an index.html file for the Http server 
 
 ```
 aswin@Aswin-HP:Containerized_API_Creation_and_Deployment$ helm repo index myhelmrepo --url http://127.0.0.1:8000
 
-#Index.html file container a similar entry
+#Index.html file contains similar entry
 
 aswin@Aswin-HP:Containerized_API_Creation_and_Deployment$ cat myhelmrepo/index.yaml 
+
 apiVersion: v1
-entries: {}
-generated: "2025-11-30T16:58:17.957100233-05:00"
+entries:
+  hello-api-chart:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-11-30T23:04:02.785145051-05:00"
+    description: A Helm chart for Kubernetes
+    digest: 6ae916be43ccdc7acb18867790efe8ca5ae06da06fd420772eec57ec729e5411
+    name: hello-api-chart
+    type: application
+    urls:
+    - http://127.0.0.1:8000/hello-api-chart-0.1.0.tgz
+    version: 0.1.0
+generated: "2025-11-30T23:04:02.784534415-05:00"
+
 
 ```
-4. Host the repositiry using Python HTTP server
+### 4. Host the repositiry using Python HTTP server
 
 ```
 aswin@Aswin-HP:Containerized_API_Creation_and_Deployment$ cd myhelmrepo/
@@ -198,3 +216,32 @@ Image of the repository hosted
 
 ![alt text](image.png)
 
+
+### 5. Add this repository to the Helm and verify whether our repo is working.
+
+```
+aswin@Aswin-HP:myhelmrepo$ helm repo add myrepo http://127.0.0.1:8000
+"myrepo" has been added to your repositories
+
+
+aswin@Aswin-HP:myhelmrepo$ helm repo update
+Hang tight while we grab the latest from your chart repositories...
+...Successfully got an update from the "myrepo" chart repository
+Update Complete. ⎈Happy Helming!⎈
+
+
+aswin@Aswin-HP:myhelmrepo$ helm repo ls
+NAME  	URL                  
+myrepo	http://127.0.0.1:8000
+
+
+aswin@Aswin-HP:myhelmrepo$ helm search repo myrepo
+NAME                  	CHART VERSION	APP VERSION	DESCRIPTION                
+myrepo/hello-api-chart	0.1.0        	1.16.0     	A Helm chart for Kubernetes
+
+```
+
+You can see the our repo is now added to the Helm that contain the custom chart we created.
+
+
+# Project Completed
