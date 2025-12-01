@@ -41,3 +41,7 @@ affinity: []
 app:
   name: hello-api
   containerPort: 8000
+
+
+environment:
+  env: "dev"

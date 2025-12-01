@@ -48,6 +48,9 @@ Containerized_API_Creation_and_Deployment/
 ├── README.md                     # Project documentation
 ```
 
+
+# PHASE-1
+
 ## 1️⃣ PART 1: Creation of application, containerize it and push to Docker Hub
 
 ### 1. Create a Python API Web application 
@@ -281,35 +284,17 @@ myrepo/hello-api-chart	0.1.0        	1.16.0     	A Helm chart for Kubernetes
 You can see the our repo (myrepo) is now added to the Helm, and it contains the chart that we stored.
 
 
-# Phase 1 Completed 🎉
-
-Created by Aswin KS. Thank you and happy learning!
-
-
-## Phase 2 (Work in Progress)
-
-This branch will introduce production-grade improvements to the Helm chart, including:
-🌱 Phase 2 Goals
-
-Add resource management (CPU & memory requests/limits).
-
-Add liveness and readiness probes.
-
-Make replica count configurable.
-
-Move configs or environment variables into a ConfigMap.
-
-Make Service NodePort configurable.
-
-Update README with Phase 2 instructions.
 
 
 
+# PHASE-2
 
-1. Add the Requests and limits placeholders in values.yaml file
+## 1️⃣ PART 1: Add requests and limits, injecting configMaps
 
-Refer the values.yaml file
 
+### 1. Add the requests and limits placeholders in values.yaml file
+
+Note: Refer the values.yaml file
 
 ```
 resources:
@@ -320,3 +305,86 @@ resources:
     cpu: "200m"
     memory: "256Mi"
 ```
+
+### 2. Add the request and limits for the deployment by refering the data from values.yaml
+
+Note: Refer the deployment.yaml file
+
+```
+
+#Phase2- Adding Requests and limits
+          resources:
+            requests:
+              cpu: {{ .Values.resources.requests.cpu }}
+              memory: {{ .Values.resources.requests.memory }}
+            limits:
+              cpu: {{ .Values.resources.limits.cpu }}
+              memory: {{ .Values.resources.limits.memory}}
+
+
+```
+
+### 3. Create a Configmap to that can be used to inject Env to the containers.(Optional)
+
+Refer: configmap.yaml file
+
+```
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "hello-api-chart.fullname" . }}-config
+data:
+  ENV: {{ .Values.environment.env | quote }}
+
+#This configmap will be injected to the container as an ENV variable, using the deployment.yaml file.
+
+```
+
+### 4. Attach the config map to the deployment's container section
+
+```
+     #Phase2- Adding some env variable to the containers using config map. For learning purpose
+          envFrom:
+            - configMapRef:
+                name: {{ include "hello-api-chart.fullname" . }}-config
+```
+
+### 5. Now upgrade the Helm release
+
+Run the command: 
+
+```
+helm upgrade --install helloapi ./hello-api-chart/
+```
+
+### 6. Verify the request, limits, and ENV injected.
+
+  *** a: To check the requests and limits: ***
+
+  ```
+  $ kubectl describe pod helloapi-hello-api-chart-5f464bfd77-jhlzr  # To describe the pod
+
+  # Check the request and limits section
+
+  Limits:
+      cpu:     200m
+      memory:  256Mi
+    Requests:
+      cpu:      50m
+      memory:   128Mi
+```
+   
+  *** b: To check the ENV injected to the pod: *** 
+
+```
+  # Connect to the pod and run the env command
+
+  aswin@Aswin-HP:Containerized_API_Creation_and_Deployment$ kubectl exec -it helloapi-hello-api-chart-5f464bfd77-jhlzr -- env | grep dev
+
+  ENV=dev
+
+You can see the ENV=dev is injected from the configmap successfully.
+```
+
+# PHASE-2 Completed Successfully
+

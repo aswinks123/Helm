@@ -28,11 +28,17 @@ spec:
 
           #Phase2- Adding Requests and limits
           resources:
-            cpu: {{ .Values.resources.requests.cpu }}
-            memory: {{ values.resources.requests.memory }}
-          limits:
-            cpu: {{ Values.resources.limits.cpu }}
-            memory: {{ Values.resources.limits.memory}}
+            requests:
+              cpu: {{ .Values.resources.requests.cpu }}
+              memory: {{ .Values.resources.requests.memory }}
+            limits:
+              cpu: {{ .Values.resources.limits.cpu }}
+              memory: {{ .Values.resources.limits.memory}}
+
+          #Phase2- Adding some env variable to the containers using config map. For learning purpose
+          envFrom:
+            - configMapRef:
+                name: {{ include "hello-api-chart.fullname" . }}-config
 
           livenessProbe:
             httpGet:
