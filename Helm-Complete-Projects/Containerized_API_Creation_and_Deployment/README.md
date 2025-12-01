@@ -245,4 +245,4 @@ myrepo/hello-api-chart	0.1.0        	1.16.0     	A Helm chart for Kubernetes
 You can see the our repo (myrepo) is now added to the Helm, and it contains the package that we stored.
 
 
-# Project Completed
+# Project Completed 🎉
