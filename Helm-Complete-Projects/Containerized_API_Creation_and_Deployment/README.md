@@ -1,4 +1,4 @@
-# About the Project
+# 🧑‍💻About the Project
 
 This project demonstrates a complete containerized deployment workflow using a simple Python FastAPI application. The API is packaged as a Docker image and published to Docker Hub. A custom Helm chart is then created to deploy the application on Kubernetes using NodePort, configurable values, and health probes. Finally, a local Helm repository is built using a Python HTTP server to host the packaged chart, allowing the application to be installed directly from the repository. This project helped me practice Docker, Kubernetes, Helm chart development, and Helm repository management in a practical, hands-on way.
 
@@ -13,8 +13,9 @@ This project demonstrates a complete containerized deployment workflow using a s
 ```
 
 
-# 📁 Project Directory Structure
+# 🗂️ Project Directory Structure
 
+```
 Containerized_API_Creation_and_Deployment/
 ├── app.py                        # FastAPI application (Hello World API)
 ├── requirements.txt              # Python dependencies
@@ -34,7 +35,7 @@ Containerized_API_Creation_and_Deployment/
 ├── image.png                     # Main project overview image (optional)
 │
 ├── README.md                     # Project documentation
-
+```
 
 ## 1️⃣ PART 1: Creation of application, containerize it and push to Docker Hub
 
