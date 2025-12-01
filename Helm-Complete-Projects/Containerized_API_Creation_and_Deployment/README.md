@@ -286,4 +286,4 @@ You can see the our repo (myrepo) is now added to the Helm, and it contains the 
 Created by Aswin KS. Thank you and happy learning!
 
 
-# Next Phase: Phase 2 in featre branch (work in progress)
+# Next Phase: Phase 2 in feature branch (work in progress)
