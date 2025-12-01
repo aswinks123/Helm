@@ -302,3 +302,21 @@ Move configs or environment variables into a ConfigMap.
 Make Service NodePort configurable.
 
 Update README with Phase 2 instructions.
+
+
+
+
+1. Add the Requests and limits placeholders in values.yaml file
+
+Refer the values.yaml file
+
+
+```
+resources:
+  requests:
+    cpu: "50m"
+    memory: "128Mi"
+  limits:
+    cpu: "200m"
+    memory: "256Mi"
+```
