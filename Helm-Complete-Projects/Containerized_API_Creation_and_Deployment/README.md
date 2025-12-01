@@ -289,11 +289,16 @@ Created by Aswin KS. Thank you and happy learning!
 ## Phase 2 (Work in Progress)
 
 This branch will introduce production-grade improvements to the Helm chart, including:
+🌱 Phase 2 Goals
 
-```
-- Resource limits
-- Probes
-- ConfigMap support
-- Replicas
-- Service improvements
-```
+Add resource management (CPU & memory requests/limits).
+
+Add liveness and readiness probes.
+
+Make replica count configurable.
+
+Move configs or environment variables into a ConfigMap.
+
+Make Service NodePort configurable.
+
+Update README with Phase 2 instructions.
