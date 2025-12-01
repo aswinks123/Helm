@@ -1,14 +1,25 @@
-# 🧑‍💻About the Project
+# 🧑‍💻 About the Project
 
 This project demonstrates a complete containerized deployment workflow using a simple Python FastAPI application. The API is packaged as a Docker image and published to Docker Hub. A custom Helm chart is then created to deploy the application on Kubernetes using NodePort, configurable values, and health probes. Finally, a local Helm repository is built using a Python HTTP server to host the packaged chart, allowing the application to be installed directly from the repository. This project helped me practice Docker, Kubernetes, Helm chart development, and Helm repository management in a practical, hands-on way.
 
 
+# 🐱 Project Highlight
+
 ```
-1. Create a Python API ✅
-2. Containerize that application and push to docker Hub ✅
-3. Create Helm Chart required for the application deployment on to a Kubernetes Cluster ✅
-4. Create a local Helm HTTP repository to host the chart ✅
-5. Add the HTTP Helm repository tp our machine and verify the chart availability  ✅
+1. Developed a Python API
+Built a lightweight Python API using Flask, implementing a simple /hello endpoint to demonstrate application packaging and deployment workflows.
+
+2. Containerized the Application & Published to Docker Hub
+Wrote a production-ready Dockerfile, built the application image locally, and pushed the finalized container image to Docker Hub for public access. This enables easy deployment across any container-based environment.
+
+3. Created a Helm Chart for Kubernetes Deployment
+Designed a custom Helm chart (hello-api-chart) to automate Kubernetes resource creation, including Deployment and Service manifests. This chart provides configurable parameters for image versioning and service exposure.
+
+4. Set Up a Local HTTP Helm Repository
+Created a local Helm repository served over HTTP, allowing storage and distribution of Helm charts. Packaged the Helm chart (.tgz) and updated the repository index to make the chart discoverable.
+
+5. Added the Repository and Verified Chart Availability
+Added the newly created HTTP repository to the local machine using Helm CLI and confirmed successful retrieval of the chart with helm repo update and helm search repo, ensuring the distribution workflow works end-to-end.
 
 ```
 
