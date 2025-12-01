@@ -49,7 +49,7 @@ Containerized_API_Creation_and_Deployment/
 ```
 
 
-# PHASE-1
+# 🟢 PHASE-1
 
 ## 1️⃣ PART 1: Creation of application, containerize it and push to Docker Hub
 
@@ -287,12 +287,12 @@ You can see the our repo (myrepo) is now added to the Helm, and it contains the 
 
 
 
-# PHASE-2
+# 🟣 PHASE-2
 
 ## 1️⃣ PART 1: Add requests and limits, injecting configMaps
 
 
-### 1. Add the requests and limits placeholders in values.yaml file
+### 1. Add the requests and limits in values.yaml file
 
 Note: Refer the values.yaml file
 
@@ -359,7 +359,7 @@ helm upgrade --install helloapi ./hello-api-chart/
 
 ### 6. Verify the request, limits, and ENV injected.
 
-  *** a: To check the requests and limits: ***
+  a: To check the requests and limits:
 
   ```
   $ kubectl describe pod helloapi-hello-api-chart-5f464bfd77-jhlzr  # To describe the pod
@@ -374,7 +374,7 @@ helm upgrade --install helloapi ./hello-api-chart/
       memory:   128Mi
 ```
    
-  *** b: To check the ENV injected to the pod: *** 
+  b: To check the ENV injected to the pod:
 
 ```
   # Connect to the pod and run the env command
@@ -386,5 +386,5 @@ helm upgrade --install helloapi ./hello-api-chart/
 You can see the ENV=dev is injected from the configmap successfully.
 ```
 
-# PHASE-2 Completed Successfully
+##  PHASE-2 Completed Successfully
 
