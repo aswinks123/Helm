@@ -18,7 +18,14 @@ service:
   nodePort: 30080   
 
 
-resources: {}
+#Phase2: Add request and limits to deployment
+resources: 
+  requests:
+    cpu: "50m"
+    memory: "128Mi"
+  limits:
+    cpu: "200m"
+    memory: "256Mi"
 
 autoscaling:
   enabled: false
@@ -34,3 +41,7 @@ affinity: []
 app:
   name: hello-api
   containerPort: 8000
+
+
+environment:
+  env: "dev"
