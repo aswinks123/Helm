@@ -12,6 +12,30 @@ This project demonstrates a complete containerized deployment workflow using a s
 
 ```
 
+
+# 📁 Project Directory Structure
+
+Containerized_API_Creation_and_Deployment/
+├── app.py                        # FastAPI application (Hello World API)
+├── requirements.txt              # Python dependencies
+├── Dockerfile                    # Docker image build file
+│
+├── hello-api-chart-0.1.0.tgz     # Packaged Helm chart (for reference/testing)
+│
+├── myhelmrepo/                   # Local Helm repository
+│   ├── hello-api-chart-0.1.0.tgz # Chart served by the local Helm repo
+│   └── index.yaml                # Helm repo index file
+│
+├── images/                       # Screenshots for documentation
+│   ├── dockerhub.png
+│   ├── helm-deploy.png
+│   └── app-availability.png
+│
+├── image.png                     # Main project overview image (optional)
+│
+├── README.md                     # Project documentation
+
+
 ## 1️⃣ PART 1: Creation of application, containerize it and push to Docker Hub
 
 ### 1. Create a Python API Web application 
