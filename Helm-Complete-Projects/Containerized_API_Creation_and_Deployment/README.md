@@ -390,12 +390,12 @@ You can see the ENV=dev is injected from the configmap successfully.
 
 
 
-# 🟣 PHASE-3 (phase-3-feature branch)
+# 🟡 PHASE-3 (phase-3-feature branch)
 
-In this phase we add the Helm unit test to test the chart
+In this phase we will add the Helm unit test to test the chart
 
 
-## 1. Install Helm Unit Test Plugin. This allows to perform unit test on helm charts
+## 1. Install Helm unit uest Plugin. This allows to perform unit test on helm charts
 
 ```
  helm plugin install https://github.com/quintush/helm-unittest --verify=false
@@ -436,7 +436,7 @@ Time:        6.35616ms
 
 ```
 
-You can see the test passed.
+Test passed successfully
 
 
 ##  PHASE-3 Completed Successfully
