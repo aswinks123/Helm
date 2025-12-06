@@ -6,20 +6,17 @@ This project demonstrates a complete containerized deployment workflow using a s
 # 🐱 Project Highlights
 
 ```
-1. Developed a Python API
-Built a lightweight Python API using Flask, implementing a simple /hello endpoint to demonstrate application packaging and deployment workflows.
+1. Developed a Python API: Built a lightweight Python API using Flask, implementing a simple /hello endpoint to demonstrate application packaging, containerization, and deployment workflows.
 
-2. Containerized the Application & Published to Docker Hub
-Wrote a production-ready Dockerfile, built the application image locally, and pushed the finalized container image to Docker Hub for public access. This enables easy deployment across any container-based environment.
+2. Containerized the Application & Published to Docker Hub: Wrote a production-ready Dockerfile, built the application image locally, and pushed the finalized container image to Docker Hub for public access. Enabled seamless deployment across container-based environments.
 
-3. Created a Helm Chart for Kubernetes Deployment
-Designed a custom Helm chart (hello-api-chart) to automate Kubernetes resource creation, including Deployment and Service manifests. This chart provides configurable parameters for image versioning and service exposure.
+3. Created a Helm Chart for Kubernetes Deployment: Designed a custom Helm chart (hello-api-chart) to automate Kubernetes resource creation, including Deployment and Service manifests. Integrated configurable parameters for image versioning, container resources, and service exposure.
 
-4. Set Up a Local HTTP Helm Repository
-Created a local Helm repository served over HTTP, allowing storage and distribution of Helm charts. Packaged the Helm chart (.tgz) and updated the repository index to make the chart discoverable.
+4. Implemented Helm Unittest for Template Validation: Developed unit tests for the Helm chart using Helm Unittest, validating container names, image versions, and the existence of resource limits/requests. Ensured reliable and repeatable deployment configurations.
 
-5. Added the Repository and Verified Chart Availability
-Added the newly created HTTP repository to the local machine using Helm CLI and confirmed successful retrieval of the chart with helm repo update and helm search repo, ensuring the distribution workflow works end-to-end.
+5. Set Up a Local HTTP Helm Repository: Created a local Helm repository served over HTTP for storing and distributing Helm charts. Packaged the chart (.tgz) and updated the repository index to make it discoverable.
+
+6. Added the Repository and Verified Chart Availability: Added the newly created HTTP repository to the local machine using Helm CLI, verified chart retrieval with helm repo update and helm search repo, and tested deployments to confirm end-to-end functionality.
 
 ```
 
@@ -27,25 +24,36 @@ Added the newly created HTTP repository to the local machine using Helm CLI and 
 # 🗂️ Project Directory Structure
 
 ```
-Containerized_API_Creation_and_Deployment/
-├── app.py                        # FastAPI application (Hello World API)
-├── requirements.txt              # Python dependencies
-├── Dockerfile                    # Docker image build file
-│
-├── hello-api-chart-0.1.0.tgz     # Packaged Helm chart (for reference/testing)
-│
-├── myhelmrepo/                   # Local Helm repository
-│   ├── hello-api-chart-0.1.0.tgz # Chart served by the local Helm repo
-│   └── index.yaml                # Helm repo index file
-│
-├── images/                       # Screenshots for documentation
-│   ├── dockerhub.png
-│   ├── helm-deploy.png
-│   └── app-availability.png
-│
-├── image.png                     # Main project overview image (optional)
-│
-├── README.md                     # Project documentation
+└── Containerized_API_Creation_and_Deployment
+    ├── app.py
+    ├── Dockerfile
+    ├── hello-api-chart  # Our chart
+    │   ├── Chart.yaml
+    │   ├── templates
+    │   │   ├── configmap.yaml
+    │   │   ├── deployment.yaml
+    │   │   ├── _helpers.tpl
+    │   │   ├── service.yaml
+    │   │   └── tests
+    │   │       └── test-connection.yaml
+    │   ├── tests #test suite
+    │   │   ├── deployment_test.yaml
+    │   │   └── __snapshot__
+    │   └── values.yaml
+    ├── hello-api-chart-0.1.0.tgz
+    ├── image.png
+    ├── images
+    │   ├── app-availability.png
+    │   ├── dockerhub.png
+    │   └── helm-deploy.png
+    ├── myhelmrepo # HTTP repository
+    │   ├── hello-api-chart-0.1.0.tgz
+    │   └── index.yaml
+    ├── __pycache__
+    │   └── app.cpython-310.pyc
+    ├── README.md
+    └── requirements.txt
+
 ```
 
 
