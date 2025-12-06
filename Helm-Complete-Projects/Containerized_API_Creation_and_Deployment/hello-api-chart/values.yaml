@@ -30,12 +30,6 @@ resources:
 autoscaling:
   enabled: false
 
-nodeSelector: {}
-
-tolerations: []
-
-affinity: []
-
 
 # To enable the Health check for liveness probe
 app:
