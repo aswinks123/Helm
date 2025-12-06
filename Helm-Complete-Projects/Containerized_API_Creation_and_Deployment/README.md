@@ -388,4 +388,63 @@ You can see the ENV=dev is injected from the configmap successfully.
 
 ##  PHASE-2 Completed Successfully
 
-Phase-3 In progress
+
+
+# 🟣 PHASE-3 (phase-3-feature branch)
+
+In this phase we add the Helm unit test to test the chart
+
+
+## 1. Install Helm Unit Test Plugin. This allows to perform unit test on helm charts
+
+```
+ helm plugin install https://github.com/quintush/helm-unittest --verify=false
+
+
+aswin@Aswin-HP:Containerized_API_Creation_and_Deployment$ helm plugin list
+NAME            VERSION TYPE    APIVERSION      PROVENANCE      SOURCE 
+unittest        0.3.1   cli/v1  legacy          unknown         unknown
+```
+
+## 2. Create test directory to hold the test and create a test file.
+
+```
+aswin@Aswin-HP:Containerized_API_Creation_and_Deployment$ ls hello-api-chart/tests/
+deployment_test.yaml   
+
+# Note: deployment_test.yaml is the test file
+
+```
+
+Note: Refer the "deployment_test.yaml"located at hello-api-chart/tests/ to see the content and description
+
+
+## 3. Run the test 
+
+```
+aswin@Aswin-HP:Containerized_API_Creation_and_Deployment$ helm unittest ./hello-api-chart 
+
+### Chart [ hello-api-chart ] ./hello-api-chart
+
+ PASS  Deployment Test	hello-api-chart/tests/deployment_test.yaml
+
+Charts:      1 passed, 1 total
+Test Suites: 1 passed, 1 total
+Tests:       2 passed, 2 total
+Snapshot:    0 passed, 0 total
+Time:        6.35616ms
+
+```
+
+You can see the test passed.
+
+
+##  PHASE-3 Completed Successfully
+
+
+
+
+
+
+
+
