@@ -295,7 +295,7 @@ You can see the our repo (myrepo) is now added to the Helm, and it contains the 
 
 
 
-# 🟣 PHASE-2 (phase-2-feature branch)
+# 🟣 PHASE-2 (Merged from phase-2-feature branch)
 
 ## 1️⃣ PART 1: Add requests and limits, injecting configMaps
 
