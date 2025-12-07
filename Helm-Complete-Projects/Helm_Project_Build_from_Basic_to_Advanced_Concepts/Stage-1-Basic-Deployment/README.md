@@ -1,4 +1,4 @@
-# What we will learn in Stage-1
+# 😋 What we will learn in Stage-1
 
 1. Using .Values for configuration
 
@@ -37,7 +37,7 @@ TEST SUITE: None
 
 ```
 
-3. Verify the deployment and associated pod
+3. Verify the deployment and its associated pods
 
 ```
 aswin@Aswin-HP:Stage-1-Basic-Deployment$ helm ls
@@ -61,7 +61,7 @@ Congratulations!. We have successfully completed the first stage
 
 
 
-## Learning Notes:
+## 🗒️ Learning Notes:
 
 
 ```
