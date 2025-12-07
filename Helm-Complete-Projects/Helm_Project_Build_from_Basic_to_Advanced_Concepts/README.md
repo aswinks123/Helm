@@ -1,5 +1,6 @@
 Learning path
 
+```
 Helm_Project_Build_from_Basic_to_Advanced_Concepts/
 ├── Stage-1-Basic-Deployment/
 │   ├── Chart.yaml
@@ -52,3 +53,4 @@ Helm_Project_Build_from_Basic_to_Advanced_Concepts/
 │       ├── tests/
 │       └── NOTES.txt
 └── README.md
+```
