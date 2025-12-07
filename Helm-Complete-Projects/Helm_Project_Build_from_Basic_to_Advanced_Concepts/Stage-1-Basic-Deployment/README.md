@@ -40,14 +40,35 @@ TEST SUITE: None
 3. Verify the deployment and associated pod
 
 ```
+aswin@Aswin-HP:Stage-1-Basic-Deployment$ helm ls
+NAME  	NAMESPACE	REVISION	UPDATED                                	STATUS  	CHART                        	APP VERSION
+stage1	default  	1       	2025-12-06 23:40:16.267128752 -0500 EST	deployed	stage1-basic-deployment-0.1.0	1.21.1     
+
+
 aswin@Aswin-HP:Stage-1-Basic-Deployment$ kubectl get deploy
-NAME                       READY   UP-TO-DATE   AVAILABLE   AGE
-helloapi-hello-api-chart   1/1     1            1           23h
+NAME           READY   UP-TO-DATE   AVAILABLE   AGE
+stage1-nginx   2/2     2            2           40s
+
+
 aswin@Aswin-HP:Stage-1-Basic-Deployment$ kubectl get pods
-NAME                                        READY   STATUS    RESTARTS      AGE
-helloapi-hello-api-chart-5f464bfd77-5f8ms   1/1     Running   1 (23h ago)   23h
+NAME                           READY   STATUS    RESTARTS   AGE
+stage1-nginx-d6c7c7948-s8ljs   1/1     Running   0          43s
+stage1-nginx-d6c7c7948-vrxns   1/1     Running   0          43s
+
 ```
 
-Congratulations!. We have successfully completed first stage
+Congratulations!. We have successfully completed the first stage
 
 
+
+## Learning Notes:
+
+
+```
+{{ ... }} : To insert dynamic values.
+
+name: {{ .Release.Name }}-nginx  : .Release.Name is a built-in Helm variable that gives the name of the release when you install or upgrade the chart.
+
+replicas: {{ .Values.replicaCount }}: replicaCount comes from values.yaml
+
+```

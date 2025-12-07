@@ -1,8 +1,8 @@
-Learning path
+# Learning path divided in to stages
 
 ```
 Helm_Project_Build_from_Basic_to_Advanced_Concepts/
-├── Stage-1-Basic-Deployment/
+├── Stage-1-Basic-Deployment/    # Completed 
 │   ├── Chart.yaml
 │   ├── values.yaml
 │   └── templates/

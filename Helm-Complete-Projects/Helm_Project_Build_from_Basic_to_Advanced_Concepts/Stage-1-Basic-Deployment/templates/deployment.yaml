@@ -23,8 +23,4 @@ spec:
 
 
 
-# Learning:
 
-# {{ ... }} : To insert dynamic values.
-# name: {{ .Release.Name }}-nginx  : .Release.Name is a built-in Helm variable that gives the name of the release when you install or upgrade the chart.
-# replicas: {{ .Values.replicaCount }}: replicaCount comes from values.yaml
