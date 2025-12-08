@@ -35,8 +35,6 @@ This is a function that we created in helpers.tpl file
 
 ```
 
-Explanation of the function
-
 We are going to create a named helper function called "stage2.name""
 
 .Chart.Name is a helm object that outputs the chartname.
@@ -95,18 +93,18 @@ You can see that the name of the deployment is : stage2-stage2-basic-deployment.
 
 This name was assigned by calling the helper function "stage2.fullname".
 
-
+```
 {{- define "stage2.fullname" -}}
 {{ printf "%s-%s" .Release.Name .Chart.Name }}
 {{- end }}
+```
 
-
-The function returned :  <stage2>-<stage2-basic-deployment> that is used to name the deployment
+The function returned :  "stage2-stage2-basic-deployment" that is used to name the deployment
 
 
 Similarly the "stage2.labels" functions was used to name the tags of the pod.
 
-Observe the Label section.
+*** Observe the Label section: *** 
 
 ```
 aswin@Aswin-HP:Stage-2-Helpers$ kubectl describe pod stage2-stage2-basic-deployment-ff8497bf8-j2k6z
@@ -122,7 +120,7 @@ Labels:           app.kubernetes.io/instance=stage2
 ```
 
 
-🗒️ Learning Notes:
+## 🗒️ Learning Notes:
 
 
 1. _helpers.tpl is a template helper file
