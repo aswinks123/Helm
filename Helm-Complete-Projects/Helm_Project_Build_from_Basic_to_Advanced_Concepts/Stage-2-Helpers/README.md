@@ -6,7 +6,7 @@
 
 3. Explanation of the function syntax
 
-4. Testing the deployment
+4. Verifying the deployment
 
 
 

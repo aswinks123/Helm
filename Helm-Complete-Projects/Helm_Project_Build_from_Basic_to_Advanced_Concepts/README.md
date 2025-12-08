@@ -6,8 +6,8 @@ Helm_Project_Build_from_Basic_to_Advanced_Concepts/
 │   ├── Chart.yaml
 │   ├── values.yaml
 │   └── templates/
-│       └── deployment.yaml
-├── Stage-2-Helpers/
+│       └── deployment.yaml 
+├── Stage-2-Helpers/             # Completed
 │   ├── Chart.yaml
 │   ├── values.yaml
 │   └── templates/
