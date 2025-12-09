@@ -159,4 +159,4 @@ Now request and limits are enabled because the value of enabled in values.yaml i
 Conditionals are useful to control whether a feature should be enabled or disabled when creating the chart.
 
 
-Congratulations!. We have successfully completed the stage-2
+Congratulations!. We have successfully completed the stage-3 🥳

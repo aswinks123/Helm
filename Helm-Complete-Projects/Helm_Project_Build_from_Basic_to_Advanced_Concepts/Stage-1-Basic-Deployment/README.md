@@ -57,9 +57,6 @@ stage1-nginx-d6c7c7948-vrxns   1/1     Running   0          43s
 
 ```
 
-Congratulations!. We have successfully completed the first stage
-
-
 
 ## 🗒️ Learning Notes:
 
@@ -72,3 +69,5 @@ name: {{ .Release.Name }}-nginx  : .Release.Name is a built-in Helm variable tha
 replicas: {{ .Values.replicaCount }}: replicaCount comes from values.yaml
 
 ```
+
+Congratulations!. We have successfully completed the stage-1 🥳

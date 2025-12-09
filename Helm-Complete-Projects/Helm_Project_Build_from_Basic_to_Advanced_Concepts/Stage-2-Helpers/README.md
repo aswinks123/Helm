@@ -145,4 +145,4 @@ end: It is the ending of the function
 ```
 
 
-Congratulations!. We have successfully completed the stage-2
+Congratulations!. We have successfully completed the stage-2 🥳
