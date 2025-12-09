@@ -10,7 +10,7 @@
 
 
 
-### What are Conditionals in Helm?
+## 1. What are Conditionals in Helm?
 
 Conditionals control whether a feature should be enabled or disabled based on the condition set.
 
