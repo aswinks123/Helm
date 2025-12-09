@@ -13,7 +13,7 @@ Helm_Project_Build_from_Basic_to_Advanced_Concepts/
 │   └── templates/
 │       ├── deployment.yaml
 │       └── _helpers.tpl
-├── Stage-3-Conditionals/
+├── Stage-3-Conditionals/         # Completed
 │   ├── Chart.yaml
 │   ├── values.yaml
 │   └── templates/
