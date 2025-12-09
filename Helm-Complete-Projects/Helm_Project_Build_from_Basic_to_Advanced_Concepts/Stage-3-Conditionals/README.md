@@ -14,7 +14,7 @@
 
 Conditionals control whether a feature should be enabled or disabled based on the condition set.
 
-### How a cOnditional looks like
+### How a conditional looks like
 
 
 Refer this example code.  Notice the "enabled: true " flag. It is a conditional that determine whether the code should be applied or not.
@@ -35,7 +35,7 @@ resources:
 
 ```
 
-## 2. Where the conditional is appled?
+## 2. Where the conditional is applied?
 
 Refer the deployment.yaml file. we added the conditional to control whether our pod should have requests and limit set.
 
@@ -83,7 +83,7 @@ TEST SUITE: None
 
 ```
 
-### 2. Check the deployed chart and the kubernetes resources it created
+### 3.1 Check the deployed chart and the kubernetes resources it created
 
 ```
 aswin@Aswin-HP:Stage-3-Conditionals$ helm ls
@@ -102,7 +102,7 @@ stage3-stage3-conditionals-56d99869b9-zg827   1/1     Running   0          26s
 ```
 
 
-### Describe the pod.
+### 3.2 Describe the pod
 
 Currently  enabled: false is set in values.yaml file, so the requests and limits are not enforced.
 
@@ -121,6 +121,8 @@ aswin@Aswin-HP:Stage-3-Conditionals$
 ```
 
 Now set the "enabled: true" and upgrade the chart.
+
+enabled: true 
 
 ```
 aswin@Aswin-HP:Stage-3-Conditionals$ helm upgrade stage3 .
@@ -152,56 +154,9 @@ aswin@Aswin-HP:Stage-3-Conditionals$ kubectl describe pod stage3-stage3-conditio
 Now request and limits are enabled because the value of enabled in values.yaml is set to true.
 
 
-
-Congratulations. We have successfully completed Stage3
-
-
-
-
-
-
-
-
-
-*** Observe the Label section: *** 
-
-```
-aswin@Aswin-HP:Stage-2-Helpers$ kubectl describe pod stage2-stage2-basic-deployment-ff8497bf8-j2k6z
-Name:             stage2-stage2-basic-deployment-ff8497bf8-j2k6z
-Namespace:        default
-Priority:         0
-Service Account:  default
-Node:             minikube/192.168.49.2
-Start Time:       Mon, 08 Dec 2025 14:16:59 -0500
-Labels:           app.kubernetes.io/instance=stage2
-                  app.kubernetes.io/name=stage2-basic-deployment
-                  pod-template-hash=ff8497bf8
-```
-
-
 ## 🗒️ Learning Notes:
 
-
-1. _helpers.tpl is a template helper file
-
-
-2. It is NOT rendered into Kubernetes YAML
-
-
-3. It holds reusable functions (snippets) using define
-
-
-4. These helpers are called using include from other templates
-
-
-```
-5. define "<function_name>" : Used to creata a function 
-
-<Body of the function>
-
-end: It is the ending of the function
-
-```
+Conditionals are useful to control whether a feature should be enabled or disabled when creating the chart.
 
 
 Congratulations!. We have successfully completed the stage-2
