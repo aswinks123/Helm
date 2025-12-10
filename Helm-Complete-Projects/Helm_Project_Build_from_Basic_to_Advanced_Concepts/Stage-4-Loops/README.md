@@ -1,6 +1,6 @@
 # 😋 What we will learn in Stage-4
 
-1. What are Loops (range) in Helm templating
+1. What are loops (range) in Helm templating
 
 2. How to use looping
 
@@ -68,6 +68,7 @@ TEST SUITE: None
 
 ### 4.2 List the helm chart and the resources it created
 
+```
 aswin@Aswin-HP:Stage-4-Loops$ helm ls
 NAME  	NAMESPACE	REVISION	UPDATED                               	STATUS  	CHART             	APP VERSION
 stage4	default  	1       	2025-12-09 22:36:24.26574591 -0500 EST	deployed	stage4-loops-0.1.0	1.21.1   
@@ -76,8 +77,7 @@ aswin@Aswin-HP:Stage-4-Loops$ kubectl get pods
 NAME                                   READY   STATUS    RESTARTS   AGE
 stage4-stage4-loops-79df5b868c-dv6xn   1/1     Running   0          32s
 stage4-stage4-loops-79df5b868c-m5pbk   1/1     Running   0          32s
-
-
+```
 
 ### 4.3 Describe the pod and verify whether the ENV variables are injected.
 
