@@ -1,7 +1,7 @@
 # Learning path divided in to stages
 
 ```
-Helm_Project_Build_from_Basic_to_Advanced_Concepts/
+Helm_Basic_to_Advanced_Concepts/
 
 ├── Stage-1-Basic-Deployment/                                 # Completed 
 ├── Stage-2-Helpers/                                          # Completed

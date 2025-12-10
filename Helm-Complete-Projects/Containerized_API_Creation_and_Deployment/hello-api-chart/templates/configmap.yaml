@@ -1,9 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: {{ include "hello-api-chart.fullname" . }}-config
-data:
-  ENV: {{ .Values.environment.env | quote }}
-
-#This configmap will be injected to the container as an ENV variable, using the deployment.yaml file.
-
