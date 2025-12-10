@@ -2,12 +2,12 @@
 
 ```
 Helm_Project_Build_from_Basic_to_Advanced_Concepts/
-├── Stage-1-Basic-Deployment/    # Completed 
+├── Stage-1-Basic-Deployment/     # Completed 
 │   ├── Chart.yaml
 │   ├── values.yaml
 │   └── templates/
 │       └── deployment.yaml 
-├── Stage-2-Helpers/             # Completed
+├── Stage-2-Helpers/              # Completed
 │   ├── Chart.yaml
 │   ├── values.yaml
 │   └── templates/
@@ -18,7 +18,7 @@ Helm_Project_Build_from_Basic_to_Advanced_Concepts/
 │   ├── values.yaml
 │   └── templates/
 │       └── deployment.yaml
-├── Stage-4-Loops/
+├── Stage-4-Loops/                # Completed
 │   ├── Chart.yaml
 │   ├── values.yaml
 │   └── templates/
