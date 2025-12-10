@@ -1,0 +1,18 @@
+suite: Deployment Test  # suite is the name of your test suite.
+templates:
+  - templates/deployment.yaml  # This tells the test which template file to test.
+
+tests:
+  - it: "should have correct container name"  # it describes what the test is checking.
+    asserts: # contains one or more assertions (conditions that must be true).
+      - equal:  # checks if a value matches what you expect.
+          path: spec.template.spec.containers[0].name  # test verifies that the first container in your Deployment has the correct name.
+          value: "hello-api-chart"  # expected name
+
+  - it: "should have correct image"
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].image
+          value: "1365890/hello-api:1.0"
+
+ 
